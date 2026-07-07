@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Trainer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        #root {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script>
+      window.wxOConfiguration = {
+        orchestrationID: "4e653383727b48058237b569ea5e1f1d_7ccb2a81-ecad-42ff-bb24-77b24eb99de1",
+        hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+        rootElementID: "root",
+        deploymentPlatform: "ibmcloud",
+        crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/4e653383727b48058237b569ea5e1f1d:7ccb2a81-ecad-42ff-bb24-77b24eb99de1::",
+        
+        /* 1. Force the chat to open immediately on page load */
+        openChatByDefault: true,
+        
+        /* 2. Hide the close button so it stays full-screen */
+        hideCloseButton: true,
+        
+        /* 3. Hide the floating bubble launcher */
+        showLauncher: false,
+        
+        /* 4. Use the native full-screen overlay layout */
+        layout: { 
+            form: "fullscreen-overlay" 
+        },
+        
+        chatOptions: {
+            agentId: "9b01faac-1f58-4514-a55f-b7e906bf17b1", 
+            agentEnvironmentId: "299cbee1-9fec-408b-a7d4-587d9ae38234",
+        }
+      };
+
+      setTimeout(function () {
+        const script = document.createElement('script');
+        script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+        script.addEventListener('load', function () {
+            
+            // Initialize the chat natively
+            wxoLoader.init();
+            
+        });
+        document.head.appendChild(script);
+      }, 0);                     
+    </script>
+
+</body>
+</html>
